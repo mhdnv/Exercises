@@ -1,0 +1,599 @@
+mhd@DESKTOP-48BF3KM:~$ nano
+mhd@DESKTOP-48BF3KM:~$ chmod 774 base.sh
+mhd@DESKTOP-48BF3KM:~$ nano base.sh
+mhd@DESKTOP-48BF3KM:~$ ./base.sh
+welcome to shell scripting
+Faheem Calicut
+mhd@DESKTOP-48BF3KM:~$ cat base.sh
+#!/bin/bash
+echo "welcome to shell scripting"
+
+name='Faheem'
+city='Calicut'
+echo "$name $city"
+
+
+mhd@DESKTOP-48BF3KM:~$ nano
+mhd@DESKTOP-48BF3KM:~$ chmod 774 reading.sh
+mhd@DESKTOP-48BF3KM:~$ ./reading.sh
+what is your name:
+faheem
+what is your age:
+23
+mhd@DESKTOP-48BF3KM:~$ cat reading.sh
+#!/bin/bash
+echo what is your name:
+read name
+echo what is your age:
+read age
+
+
+mhd@DESKTOP-48BF3KM:~$ nano
+mhd@DESKTOP-48BF3KM:~$ chmod 774 parameters.sh
+mhd@DESKTOP-48BF3KM:~$ ./parameters.sh 123 hello hey 567
+The script title is ./parameters.sh
+The first argument is 123
+The second argument is hello
+The third argument is hey
+The fourth argument is 567
+/$ 137 is the PID of the script
+/# THe total number of parameters in the script 4
+mhd@DESKTOP-48BF3KM:~$ cat parameters.sh
+#!/bin/bash
+echo The script title is $0
+#
+echo The first argument is $1
+echo The second argument is $2
+echo The third argument is $3
+echo The fourth argument is $4
+#
+echo /$ $$ is the PID of the script
+echo /# THe total number of parameters in the script $#
+
+
+
+mhd@DESKTOP-48BF3KM:~$ nano
+mhd@DESKTOP-48BF3KM:~$ chmod 774 if.sh
+mhd@DESKTOP-48BF3KM:~$ ./if.sh
+enter a fruit
+apple
+ I love apples
+mhd@DESKTOP-48BF3KM:~$ ./if.sh
+enter a fruit
+orange
+ I love orange
+mhd@DESKTOP-48BF3KM:~$ ./if.sh
+enter a fruit
+mango
+ I like mango
+mhd@DESKTOP-48BF3KM:~$ ./if.sh
+enter a fruit
+pineapple
+ I can like any pineapple
+mhd@DESKTOP-48BF3KM:~$ cat if.sh
+#!/bin/bash
+echo "enter a fruit"
+read fruit
+if [ $fruit = apple ]
+        then echo " I love apples"
+elif [ $fruit = mango ]
+        then echo " I like $fruit"
+elif [ $fruit = orange ]
+        then echo " I love orange"
+        else echo " I can like any $fruit"
+fi
+
+
+
+mhd@DESKTOP-48BF3KM:~$ nano
+mhd@DESKTOP-48BF3KM:~$ chmod 774 loop.sh
+mhd@DESKTOP-48BF3KM:~$ ./loop.sh
+enter some no
+3
+1 time 3
+enter some no
+4
+2 time 4
+enter some no
+4
+3 time 4
+enter some no
+1
+4 time 1
+mhd@DESKTOP-48BF3KM:~$ cat loop.sh
+for((c=1; c<5; c++))
+do
+        echo "enter some no"
+        read no
+        echo "$c time $no"
+done
+
+
+
+mhd@DESKTOP-48BF3KM:~$ nano
+mhd@DESKTOP-48BF3KM:~$ chmod 774 looparray.sh
+mhd@DESKTOP-48BF3KM:~$ nano looparray.sh
+mhd@DESKTOP-48BF3KM:~$ ./looparray.sh
+akshay
+athul
+ajay
+mhd@DESKTOP-48BF3KM:~$ cat looparray.sh
+MYFRIENDS=("akshay" "athul" "ajay")
+for friend in "${MYFRIENDS[@]}"
+        do
+                echo $friend
+        done    
+
+
+mhd@DESKTOP-48BF3KM:~$ nano
+mhd@DESKTOP-48BF3KM:~$ chmod 774 func.sh
+mhd@DESKTOP-48BF3KM:~$ nano func.sh
+mhd@DESKTOP-48BF3KM:~$ ./func.sh athul ajay
+function with argument
+hi,athul
+hello,ajay
+mhd@DESKTOP-48BF3KM:~$ cat func.sh
+myfunction(){
+        echo "function with argument"
+        echo "hi,$1"
+        echo "hello,$2"
+}
+myfunction $1 $2      
+
+
+mhd@DESKTOP-48BF3KM:~$ bash -x ./func.sh
++ myfunction
++ echo 'function with argument'
+function with argument
++ echo hi,
+hi,
++ echo hello,
+hello,  
+
+
+
+
+
+
+
+
+mhd@DESKTOP-48BF3KM:~$ mkdir newdir
+mhd@DESKTOP-48BF3KM:~$ cd newdir
+mhd@DESKTOP-48BF3KM:~/newdir$ nano dirinfo.txt
+mhd@DESKTOP-48BF3KM:~/newdir$ ls
+dirinfo.txt
+mhd@DESKTOP-48BF3KM:~/newdir$ cd ..
+mhd@DESKTOP-48BF3KM:~$ pwd
+/home/mhd
+mhd@DESKTOP-48BF3KM:~$ cd newdir
+
+mhd@DESKTOP-48BF3KM:~/newdir$ mv dirinfo.txt /home/mhd
+mhd@DESKTOP-48BF3KM:~/newdir$ cd ..
+mhd@DESKTOP-48BF3KM:~$ ls
+2         base.sh      func.sh       loop.sh       nano.save  newfile        temp      zing
+Abcimpex  dirinfo.txt  hashinfo.txt  looparray.sh  new        newinfo.txt    test.yml
+Hashmum   file         if.sh         mhd           newdir     parameters.sh  wloop.sh
+mhd@DESKTOP-48BF3KM:~$ cat dirinfo.txt
+name = faheem
+id = 206545
+location = calicut
+
+mhd@DESKTOP-48BF3KM:~$ cp dirinfo.txt /home/mhd/newdir
+mhd@DESKTOP-48BF3KM:~$ cd newdir
+mhd@DESKTOP-48BF3KM:~/newdir$ ls
+dirinfo.txt
+mhd@DESKTOP-48BF3KM:~/newdir$ cat dirinfo.txt
+name = faheem
+id = 206545
+location = calicut
+
+mhd@DESKTOP-48BF3KM:~/newdir$ cd ..
+mhd@DESKTOP-48BF3KM:~$ ls -il
+total 84
+37445 -rw-r--r--  1 mhd mhd    0 Dec 16 17:57 2
+37325 drwxr-xr-x  3 mhd mhd 4096 Dec 17 15:20 Abcimpex
+96945 drwxr-xr-x  2 mhd mhd 4096 Jan  7 17:41 Hashmum
+40745 -rwxrwxr--  1 mhd mhd   95 Jan  7 19:28 base.sh
+97012 -rw-r--r--  1 mhd mhd   47 Jan  7 22:06 dirinfo.txt
+97007 drwxr-xr-x  2 mhd mhd 4096 Jan  7 21:59 file
+97005 -rwxrwxr--  1 mhd mhd   95 Jan  7 20:12 func.sh
+96996 -rwxrwxr--  1 mhd mhd   50 Jan  7 17:39 hashinfo.txt
+97000 -rwxrwxr--  1 mhd mhd  238 Jan  7 19:54 if.sh
+97001 -rwxrwxr--  1 mhd mhd   80 Jan  7 19:59 loop.sh
+97004 -rwxrwxr--  1 mhd mhd   93 Jan  7 20:08 looparray.sh
+40904 drwxr-xr-x 10 mhd mhd 4096 Dec 15 17:48 mhd
+96881 -rw-------  1 mhd mhd    1 Dec 28 18:45 nano.save
+97006 drwxr-xr-x  2 mhd mhd 4096 Jan  7 21:59 new
+97009 drwxr-xr-x  2 mhd mhd 4096 Jan  7 22:08 newdir
+97008 drwxr-xr-x  2 mhd mhd 4096 Jan  7 22:03 newfile
+97010 -rwxrwxr--  1 mhd mhd   46 Jan  7 22:00 newinfo.txt
+96999 -rwxrwxr--  1 mhd mhd  259 Jan  7 19:42 parameters.sh
+96882 drwxrwxr-x  2 mhd mhd 4096 Dec 20 14:49 temp
+96998 -rw-r--r--  1 mhd mhd  116 Jan  7 18:15 test.yml
+97003 -rwxrwxr--  1 mhd mhd   71 Jan  7 20:03 wloop.sh
+37448 drwxr-xr-x  2 mhd mhd 4096 Dec 28 17:40 zing
+mhd@DESKTOP-48BF3KM:~$ ls -l
+total 84
+-rw-r--r--  1 mhd mhd    0 Dec 16 17:57 2
+drwxr-xr-x  3 mhd mhd 4096 Dec 17 15:20 Abcimpex
+drwxr-xr-x  2 mhd mhd 4096 Jan  7 17:41 Hashmum
+-rwxrwxr--  1 mhd mhd   95 Jan  7 19:28 base.sh
+-rw-r--r--  1 mhd mhd   47 Jan  7 22:06 dirinfo.txt
+drwxr-xr-x  2 mhd mhd 4096 Jan  7 21:59 file
+-rwxrwxr--  1 mhd mhd   95 Jan  7 20:12 func.sh
+-rwxrwxr--  1 mhd mhd   50 Jan  7 17:39 hashinfo.txt
+-rwxrwxr--  1 mhd mhd  238 Jan  7 19:54 if.sh
+-rwxrwxr--  1 mhd mhd   80 Jan  7 19:59 loop.sh
+-rwxrwxr--  1 mhd mhd   93 Jan  7 20:08 looparray.sh
+drwxr-xr-x 10 mhd mhd 4096 Dec 15 17:48 mhd
+-rw-------  1 mhd mhd    1 Dec 28 18:45 nano.save
+drwxr-xr-x  2 mhd mhd 4096 Jan  7 21:59 new
+drwxr-xr-x  2 mhd mhd 4096 Jan  7 22:08 newdir
+drwxr-xr-x  2 mhd mhd 4096 Jan  7 22:03 newfile
+-rwxrwxr--  1 mhd mhd   46 Jan  7 22:00 newinfo.txt
+-rwxrwxr--  1 mhd mhd  259 Jan  7 19:42 parameters.sh
+drwxrwxr-x  2 mhd mhd 4096 Dec 20 14:49 temp
+-rw-r--r--  1 mhd mhd  116 Jan  7 18:15 test.yml
+-rwxrwxr--  1 mhd mhd   71 Jan  7 20:03 wloop.sh
+drwxr-xr-x  2 mhd mhd 4096 Dec 28 17:40 zing
+mhd@DESKTOP-48BF3KM:~$ chmod 774 dirinfo.txt
+mhd@DESKTOP-48BF3KM:~$ ls -il dirinfo.txt
+97012 -rwxrwxr-- 1 mhd mhd 47 Jan  7 22:06 dirinfo.txt
+mhd@DESKTOP-48BF3KM:~$ ls -a
+.                 .bash_logout  .profile                   base.sh       loop.sh       newfile        zing
+..                .bashrc       .python_history            dirinfo.txt   looparray.sh  newinfo.txt
+.ansible          .config       .sudo_as_admin_successful  file          mhd           parameters.sh
+.bash_aliases     .landscape    2                          func.sh       nano.save     temp
+.bash_aliases.sh  .local        Abcimpex                   hashinfo.txt  new           test.yml
+.bash_history     .motd_shown   Hashmum                    if.sh         newdir        wloop.sh
+mhd@DESKTOP-48BF3KM:~$ whoami
+mhd
+mhd@DESKTOP-48BF3KM:~$ id
+uid=1000(mhd) gid=1000(mhd) groups=1000(mhd),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),117(netdev)
+mhd@DESKTOP-48BF3KM:~$ w
+ 22:10:09 up 13:07,  0 users,  load average: 0.37, 0.47, 0.54
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+mhd@DESKTOP-48BF3KM:~$ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+systemd-timesync:x:102:104:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:103:106::/nonexistent:/usr/sbin/nologin
+syslog:x:104:110::/home/syslog:/usr/sbin/nologin
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+tss:x:106:111:TPM software stack,,,:/var/lib/tpm:/bin/false
+uuidd:x:107:112::/run/uuidd:/usr/sbin/nologin
+tcpdump:x:108:113::/nonexistent:/usr/sbin/nologin
+sshd:x:109:65534::/run/sshd:/usr/sbin/nologin
+landscape:x:110:115::/var/lib/landscape:/usr/sbin/nologin
+pollinate:x:111:1::/var/cache/pollinate:/bin/false
+mhd:x:1000:1000:,,,:/home/mhd:/bin/bash
+mhd@DESKTOP-48BF3KM:~$ cat /etc/group
+root:x:0:
+daemon:x:1:
+bin:x:2:
+sys:x:3:
+adm:x:4:syslog,mhd
+tty:x:5:syslog
+disk:x:6:
+lp:x:7:
+mail:x:8:
+news:x:9:
+uucp:x:10:
+man:x:12:
+proxy:x:13:
+kmem:x:15:
+dialout:x:20:mhd
+fax:x:21:
+voice:x:22:
+cdrom:x:24:mhd
+floppy:x:25:mhd
+tape:x:26:
+sudo:x:27:mhd
+audio:x:29:mhd
+dip:x:30:mhd
+www-data:x:33:
+backup:x:34:
+operator:x:37:
+list:x:38:
+irc:x:39:
+src:x:40:
+gnats:x:41:
+shadow:x:42:
+utmp:x:43:
+video:x:44:mhd
+sasl:x:45:
+plugdev:x:46:mhd
+staff:x:50:
+games:x:60:
+users:x:100:
+nogroup:x:65534:
+systemd-journal:x:101:
+systemd-network:x:102:
+systemd-resolve:x:103:
+systemd-timesync:x:104:
+crontab:x:105:
+messagebus:x:106:
+input:x:107:
+kvm:x:108:
+render:x:109:
+syslog:x:110:
+tss:x:111:
+uuidd:x:112:
+tcpdump:x:113:
+ssh:x:114:
+landscape:x:115:
+admin:x:116:
+netdev:x:117:mhd
+lxd:x:118:
+mhd:x:1000:
+devops:x:1003:
+mhd@DESKTOP-48BF3KM:~$ ps
+  PID TTY          TIME CMD
+    9 pts/0    00:00:11 bash
+  229 pts/0    00:00:00 ps
+mhd@DESKTOP-48BF3KM:~$ df
+Filesystem     1K-blocks      Used Available Use% Mounted on
+/dev/sdd       263174212   1917996 247818060   1% /
+tmpfs            1581500    373252   1208248  24% /mnt/wsl
+/dev/sdc       263174212   4888392 244847664   2% /mnt/wsl/docker-desktop-data/isocache
+none             1581500        12   1581488   1% /mnt/wsl/docker-desktop/shared-sockets/host-services
+/dev/sdb       263174212    124936 249611120   1% /mnt/wsl/docker-desktop/docker-desktop-proxy
+/dev/loop0        378002    378002         0 100% /mnt/wsl/docker-desktop/cli-tools
+tools          361192444 143501840 217690604  40% /init
+none             1579416         0   1579416   0% /dev
+none             1581500         8   1581492   1% /run
+none             1581500         0   1581500   0% /run/lock
+none             1581500         0   1581500   0% /run/shm
+none             1581500         0   1581500   0% /run/user
+tmpfs            1581500         0   1581500   0% /sys/fs/cgroup
+C:\            361192444 143501840 217690604  40% /mnt/c
+D:\            614399996  18116072 596283924   3% /mnt/d
+mhd@DESKTOP-48BF3KM:~$ bash --version
+GNU bash, version 5.0.17(1)-release (x86_64-pc-linux-gnu)
+Copyright (C) 2019 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+
+
+
+
+mhd@DESKTOP-48BF3KM:~$ python3
+Python 3.8.10 (default, Jun  2 2021, 10:49:15)
+[GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 2+5
+7
+>>> 45-10
+35
+>>> 3*5
+15
+>>> 4/3
+1.3333333333333333
+>>> 4//3
+1
+>>> 17%3
+2
+>>> a='hello'
+>>> a[3]
+'l'
+>>> class student:
+...     def set(self,id,name,address):
+...             self.id=id
+...             self.name=name
+...             self.address=address
+...     def get(self):
+...             print('id:',self.id,'name:',self.name,'address:',self.address)
+...
+>>> s=student()
+>>> s.set(206545,'faheem','nv')
+>>> s.get()
+id: 206545 name: faheem address: nv   
+
+
+
+
+ 
+
+
+
+
+mhd@DESKTOP-48BF3KM:~$ ansible --version
+ansible [core 2.11.7]
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = ['/home/mhd/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/mhd/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible
+  python version = 3.8.10 (default, Jun  2 2021, 10:49:15) [GCC 9.4.0]
+  jinja version = 2.10.1
+  libyaml = True
+mhd@DESKTOP-48BF3KM:~$ ansible all -m setup
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+mhd@DESKTOP-48BF3KM:~$ nano test.yml
+mhd@DESKTOP-48BF3KM:~$ cat test.yml
+---
+faheem:
+        name: faheem
+        id: 206545
+        location: trivandrum
+        role: developer
+        likes:
+           - maths
+           - physics
+...
+
+
+
+
+mhd@DESKTOP-48BF3KM:~$ ansible-galaxy init --force --offline faheemrole
+
+- Role faheemrole was created successfully
+mhd@DESKTOP-48BF3KM:~$
+mhd@DESKTOP-48BF3KM:~$ tree faheemrole
+faheemrole
+├── README.md
+├── defaults
+│   └── main.yml
+├── files
+├── handlers
+│   └── main.yml
+├── meta
+│   └── main.yml
+├── tasks
+│   └── main.yml
+├── templates
+├── tests
+│   ├── inventory
+│   └── test.yml
+└── vars
+    └── main.yml
+
+8 directories, 8 files
+mhd@DESKTOP-48BF3KM:~$ mkdir faheem_playbook
+mhd@DESKTOP-48BF3KM:~$ cd faheem_playbook
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$ nano faheem_orchestrate.yml
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$ ansible-galaxy init --force --offline install-tomcat
+- Role install-tomcat was created successfully
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$ vd install-tomcat
+
+Command 'vd' not found, but can be installed with:
+
+sudo apt install visidata
+
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$ cd install-tomcat
+mhd@DESKTOP-48BF3KM:~/faheem_playbook/install-tomcat$ ls
+README.md  defaults  files  handlers  meta  tasks  templates  tests  vars
+mhd@DESKTOP-48BF3KM:~/faheem_playbook/install-tomcat$ cd ..
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$ ansible-galaxy init --force --offline start-tomcat
+- Role start-tomcat was created successfully
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$ ls
+install-tomcat  start-tomcat
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$ tree install-tomcat
+install-tomcat
+├── README.md
+├── defaults
+│   └── main.yml
+├── files
+├── handlers
+│   └── main.yml
+├── meta
+│   └── main.yml
+├── tasks
+│   └── main.yml
+├── templates
+├── tests
+│   ├── inventory
+│   └── test.yml
+└── vars
+    └── main.yml
+
+8 directories, 8 files
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$ cd install-tomcat
+mhd@DESKTOP-48BF3KM:~/faheem_playbook/install-tomcat$ cd tasks
+mhd@DESKTOP-48BF3KM:~/faheem_playbook/install-tomcat/tasks$ nano main.yml
+mhd@DESKTOP-48BF3KM:~/faheem_playbook/install-tomcat/tasks$ cd ../..
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$ nano faheem_orchestrate.yml
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$ cd install-tomcat
+mhd@DESKTOP-48BF3KM:~/faheem_playbook/install-tomcat$ cd tasks
+mhd@DESKTOP-48BF3KM:~/faheem_playbook/install-tomcat/tasks$ cd ../..
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$ cd start-tomcat
+mhd@DESKTOP-48BF3KM:~/faheem_playbook/start-tomcat$ cd tasks
+mhd@DESKTOP-48BF3KM:~/faheem_playbook/start-tomcat/tasks$ nano main.yml
+mhd@DESKTOP-48BF3KM:~/faheem_playbook/start-tomcat/tasks$ cd ../..
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$ cd install-tomcat
+mhd@DESKTOP-48BF3KM:~/faheem_playbook/install-tomcat$ nano main.yml
+mhd@DESKTOP-48BF3KM:~/faheem_playbook/install-tomcat$ cd tasks
+mhd@DESKTOP-48BF3KM:~/faheem_playbook/install-tomcat/tasks$ nano main.yml
+mhd@DESKTOP-48BF3KM:~/faheem_playbook/install-tomcat/tasks$ cd ../..
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$ sudo ansible-playbook -i hosts faheem_orchestrate.yml -vvv
+[sudo] password for mhd:
+-playbook [core 2.11.7]
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /root/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.8.10 (default, Jun  2 2021, 10:49:15) [GCC 9.4.0]
+  jinja version = 2.10.1
+  libyaml = True
+Using /etc/ansible/ansible.cfg as config file
+host_list declined parsing /home/mhd/faheem_playbook/hosts as it did not pass its verify_file() method
+Skipping due to inventory source not existing or not being readable by the current user
+script declined parsing /home/mhd/faheem_playbook/hosts as it did not pass its verify_file() method
+auto declined parsing /home/mhd/faheem_playbook/hosts as it did not pass its verify_file() method
+Skipping due to inventory source not existing or not being readable by the current user
+yaml declined parsing /home/mhd/faheem_playbook/hosts as it did not pass its verify_file() method
+Skipping due to inventory source not existing or not being readable by the current user
+ini declined parsing /home/mhd/faheem_playbook/hosts as it did not pass its verify_file() method
+Skipping due to inventory source not existing or not being readable by the current user
+toml declined parsing /home/mhd/faheem_playbook/hosts as it did not pass its verify_file() method
+[WARNING]: Unable to parse /home/mhd/faheem_playbook/hosts as an inventory source
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$ 12345
+12345: command not found
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$ :wq
+:wq: command not found
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$ cd install-tomcat/tasks
+mhd@DESKTOP-48BF3KM:~/faheem_playbook/install-tomcat/tasks$ cat main.yml
+---
+# tasks file for install-tomcat
+-
+ block:
+   - name: Install Tomcat artifacts
+      action: >
+      yum name = "demo-tomcat-1" state=present
+      register: Output
+
+ always:
+   - debug:
+      msg:
+        - "Install Tomcat artifactstask ended with message: {{Output}}"
+        - "Install Tomcat artifacts - {{Output.changed}}"
+
+mhd@DESKTOP-48BF3KM:~/faheem_playbook/install-tomcat/tasks$ cd ../..
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$ cd start-tomcat/tasks
+mhd@DESKTOP-48BF3KM:~/faheem_playbook/start-tomcat/tasks$ cat main.yml
+---
+# tasks file for start-tomcat
+-
+ block:
+   - name: Start tomcat
+     command: <path of tomcat>/bin/startup.sh
+     register: Output
+     become: true
+
+ always:
+    - debug:
+       msg:
+         - "Start Tomcat task ended with message: {{Output}}"
+         - "Tomcat started - {{Output.changed}}"
+mhd@DESKTOP-48BF3KM:~/faheem_playbook/start-tomcat/tasks$ cd ../..
+mhd@DESKTOP-48BF3KM:~/faheem_playbook$ cat faheem_orchestrate.yml
+---
+- hosts: tomcat-node
+  roles:
+    - {role: install-tomcat}
+    - {role: start-tomcat}                                     

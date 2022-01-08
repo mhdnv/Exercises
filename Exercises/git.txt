@@ -1,0 +1,205 @@
+PS C:\Users\htpha\OneDrive\Desktop> git config --global user.name                                                                                                                               mhdnv
+PS C:\Users\htpha\OneDrive\Desktop> git config --global user.email                                                                                                                              faheem12@gmail.com
+PS C:\Users\htpha\OneDrive\Desktop> cd gitdemo                                                                                                                                                  PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git init                                                                                                                                            Initialized empty Git repository in C:/Users/htpha/OneDrive/Desktop/gitdemo/.git/
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git status                                                                                                                                          On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git status                                                                                                                                          On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        sample1.txt
+        sample2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git add sample1.txt sample2.txt                                                                                                                     PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git status                                                                                                                                          On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   sample1.txt
+        new file:   sample2.txt
+
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git commit -m "files added"                                                                                                                         [master (root-commit) 2257ef2] files added
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 sample1.txt
+ create mode 100644 sample2.txt
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git status                                                                                                                                          On branch master
+nothing to commit, working tree clean
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git add sample1.txt                                                                                                                                 PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git status                                                                                                                                          On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   sample1.txt
+
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git commit -m "file1 modified"                                                                                                                      [master 8490ab2] file1 modified
+ 1 file changed, 1 insertion(+)
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git status                                                                                                                                          On branch master
+nothing to commit, working tree clean
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git log                                                                                                                                             commit 8490ab2cec9bf1e3c9d2223c1bbb4ef30643c3c3 (HEAD -> master)
+Author: mhdnv <faheem12@gmail.com>
+Date:   Sat Jan 8 12:38:10 2022 +0530
+
+    file1 modified
+
+commit 2257ef244e1e87050246fe7945bbb0dbc28c8e43
+Author: mhdnv <faheem12@gmail.com>
+Date:   Sat Jan 8 12:37:05 2022 +0530
+
+    files added
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git log -p                                                                                                                                          commit 8490ab2cec9bf1e3c9d2223c1bbb4ef30643c3c3 (HEAD -> master)
+Author: mhdnv <faheem12@gmail.com>
+Date:   Sat Jan 8 12:38:10 2022 +0530
+
+    file1 modified
+
+diff --git a/sample1.txt b/sample1.txt
+index e69de29..230c3c1 100644
+--- a/sample1.txt
++++ b/sample1.txt
+@@ -0,0 +1 @@
++my name is faheem
+\ No newline at end of file
+
+commit 2257ef244e1e87050246fe7945bbb0dbc28c8e43
+Author: mhdnv <faheem12@gmail.com>
+Date:   Sat Jan 8 12:37:05 2022 +0530
+
+    files added
+
+diff --git a/sample1.txt b/sample1.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/sample2.txt b/sample2.txt
+new file mode 100644
+index 0000000..e69de29
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git branch experimental                                                                                                                             PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git log                                                                                                                                             commit 8490ab2cec9bf1e3c9d2223c1bbb4ef30643c3c3 (HEAD -> master, experimental)
+Author: mhdnv <faheem12@gmail.com>
+Date:   Sat Jan 8 12:38:10 2022 +0530
+
+    file1 modified
+
+commit 2257ef244e1e87050246fe7945bbb0dbc28c8e43
+Author: mhdnv <faheem12@gmail.com>
+Date:   Sat Jan 8 12:37:05 2022 +0530
+
+    files added
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git switch experimental                                                                                                                             Switched to branch 'experimental'
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git add sample1.txt                                                                                                                                 PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git status                                                                                                                                          On branch experimental
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   sample1.txt
+
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git commit -m "file1 again modified"                                                                                                                [experimental 8ad4e45] file1 again modified
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git log                                                                                                                                             commit 8ad4e45b57ef4748a1a273090e8bc2728b1bbcd4 (HEAD -> experimental)
+Author: mhdnv <faheem12@gmail.com>
+Date:   Sat Jan 8 12:40:42 2022 +0530
+
+    file1 again modified
+
+commit 8490ab2cec9bf1e3c9d2223c1bbb4ef30643c3c3 (master)
+Author: mhdnv <faheem12@gmail.com>
+Date:   Sat Jan 8 12:38:10 2022 +0530
+
+    file1 modified
+
+commit 2257ef244e1e87050246fe7945bbb0dbc28c8e43
+Author: mhdnv <faheem12@gmail.com>
+Date:   Sat Jan 8 12:37:05 2022 +0530
+
+    files added
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git merge master                                                                                                                                    Already up to date.
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git log                                                                                                                                             commit 8ad4e45b57ef4748a1a273090e8bc2728b1bbcd4 (HEAD -> experimental)
+Author: mhdnv <faheem12@gmail.com>
+Date:   Sat Jan 8 12:40:42 2022 +0530
+
+    file1 again modified
+
+commit 8490ab2cec9bf1e3c9d2223c1bbb4ef30643c3c3 (master)
+Author: mhdnv <faheem12@gmail.com>
+Date:   Sat Jan 8 12:38:10 2022 +0530
+
+    file1 modified
+
+commit 2257ef244e1e87050246fe7945bbb0dbc28c8e43
+Author: mhdnv <faheem12@gmail.com>
+Date:   Sat Jan 8 12:37:05 2022 +0530
+
+    files added
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git switch master                                                                                                                                   Switched to branch 'master'
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git merge experimental                                                                                                                              Updating 8490ab2..8ad4e45
+Fast-forward
+ sample1.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git log                                                                                                                                             commit 8ad4e45b57ef4748a1a273090e8bc2728b1bbcd4 (HEAD -> master, experimental)
+Author: mhdnv <faheem12@gmail.com>
+Date:   Sat Jan 8 12:40:42 2022 +0530
+
+    file1 again modified
+
+commit 8490ab2cec9bf1e3c9d2223c1bbb4ef30643c3c3
+Author: mhdnv <faheem12@gmail.com>
+Date:   Sat Jan 8 12:38:10 2022 +0530
+
+    file1 modified
+
+commit 2257ef244e1e87050246fe7945bbb0dbc28c8e43
+Author: mhdnv <faheem12@gmail.com>
+Date:   Sat Jan 8 12:37:05 2022 +0530
+
+    files added
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git remote  
+
+
+
+
+
+
+
+PS C:\Users\htpha\OneDrive\Desktop\gitdemo> history
+
+  Id CommandLine
+  -- -----------
+   1 cd OneDrive
+   2 cd Desktop
+   3 clear
+   4 git config --global user.name
+   5 git config --global user.email
+   6 cd gitdemo
+   7 git init
+   8 git status
+   9 git status
+  10 git add sample1.txt sample2.txt
+  11 git status
+  12 git commit -m "files added"
+  13 git status
+  14 git add sample1.txt
+  15 git status
+  16 git commit -m "file1 modified"
+  17 git status
+  18 git log
+  19 git log -p
+  20 git branch experimental
+  21 git log
+  22 git switch experimental
+  23 git add sample1.txt
+  24 git status
+  25 git commit -m "file1 again modified"
+  26 git log
+  27 git merge master
+  28 git log
+  29 git switch master
+  30 git merge experimental
+  31 git log
+  32 git remote
+  33 git remote -v
+  34 git remote origin
+  35 git remote
+
+
+                                                                                                                                        PS C:\Users\htpha\OneDrive\Desktop\gitdemo> git remote -v                            
